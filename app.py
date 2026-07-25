@@ -18,13 +18,17 @@ from functools import wraps
 from database import get_db, close_db
 from auth import get_current_user, login_required
 from blueprints.notes import notes_bp
+import os
 
 app = Flask(__name__)
 
 app.teardown_appcontext(close_db)
 app.register_blueprint(notes_bp)
 
-app.secret_key = "temporary-learning-key"
+app.secret_key = os.environ.get(
+    "SECRET_KEY",
+    "temporary-learning-key"
+)
 
 @app.route("/")
 def home():
