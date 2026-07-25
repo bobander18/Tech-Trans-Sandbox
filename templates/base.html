@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Flask App</title>
+    </head>
+
+    <body>
+        <h1>My Flask App</h1>
+
+        {% for message in get_flashed_messages() %}
+            <p>{{ message}}</p>
+        {% endfor %}
+
+        <nav>
+            <a href="{{url_for('home')}}">Home</a>
+
+            {% if "user_id" in session %}
+                <!-- Logged-in links go here -->
+                <a href="{{url_for('profile')}}">Profile</a>
+                <a href="{{url_for('editprofile')}}">Edit Profile</a>
+                <a href="{{url_for('notes')}}">Notes</a>
+                <a href="{{url_for('logout')}}">Logout</a>
+            {% else %}
+                <!-- Logged-out links go here -->
+                <a href="{{url_for('register')}}">Register</a>
+            {% endif %}
+        </nav>
+
+        {% block content %}
+
+        {% endblock %}
+    </body>
+</html>

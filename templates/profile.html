@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<head>
+    <title>Profile</title>
+</head>
+<button id="load-profile">Load Profile</button>
+<p id="username-display">No profile loaded.</p>
+<body>
+    <h1>Welcome, {{ username }}!</h1>
+    <a href="{{ url_for('editprofile')}}">Edit Profile</a><br>
+    <a href="{{url_for('delete_account')}}">Delete Account</a><br>
+    <a href="{{ url_for('logout') }}">Log out</a>
+    <script src="{{ url_for('static', filename='script.js')}}"?></script>
+</body>
+
+{% endblock %}

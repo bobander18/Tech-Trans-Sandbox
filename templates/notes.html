@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Notes</h1>
+<input id="note-search-box" type = text placeholder="Search notes...">
+<button id="search-note" type="button">Search</button><br>
+<input id="note-title" type="text">
+<textarea id="note-content"></textarea>
+<button id="create-note" type=""button>Create Note</button>
+<div id="notes-container"></div><br>
+<button id="previous-page" type="button">Previous</button>
+<button id="next-page" type="button">Next</button>
+<script src="{{ url_for('static', filename='script.js')}}"></script>
+{% endblock %}
